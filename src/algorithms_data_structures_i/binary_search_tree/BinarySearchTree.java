@@ -8,13 +8,19 @@ class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
     private Node<T> root;
 
     public void traverse() {
-        Node<T> minNode = this.getMin();
+        traverseNode(root);
+    }
 
-        //getminnode - start point
+    private void traverseNode(Node node){
+        if (node.hasLeftChildNode()) {
+            traverseNode(node.getLeftChild());
+        }
 
-        //check left node - if exists, pass in self
-        //print parent
-        //check right node - if exists, pass in self
+        System.out.println(node.getData());
+
+        if (node.hasRightChildNode()) {
+            traverseNode(node.getRightChild());
+        }
     }
 
     public void insert(T data) {
