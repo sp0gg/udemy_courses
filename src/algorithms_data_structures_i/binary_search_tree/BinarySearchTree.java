@@ -8,7 +8,13 @@ class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
     private Node<T> root;
 
     public void traverse() {
+        Node<T> minNode = this.getMin();
 
+        //getminnode - start point
+
+        //check left node - if exists, pass in self
+        //print parent
+        //check right node - if exists, pass in self
     }
 
     public void insert(T data) {
@@ -23,35 +29,35 @@ class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     }
 
-    public T getMax() {
+    public Node<T> getMax() {
         if(!root.hasRightChildNode()){
-            return root.getData();
+            return root;
         }else{
             return getRightNode(root.getRightChild());
         }
     }
 
-    public T getMin() {
+    public Node<T> getMin() {
         if(!root.hasLeftChildNode()){
-            return root.getData();
+            return root;
         }else{
             return getLeftNode(root.getLeftChild());
         }
     }
 
-    private T getRightNode(Node<T> node) {
+    private Node<T> getRightNode(Node<T> node) {
         if (node.hasRightChildNode()) {
             return getRightNode(node.getRightChild());
         }else{
-            return node.getData();
+            return node;
         }
     }
 
-    private T getLeftNode(Node<T> node) {
+    private Node<T> getLeftNode(Node<T> node) {
         if (node.hasLeftChildNode()) {
             return getLeftNode(node.getLeftChild());
         }else{
-            return node.getData();
+            return node;
         }
     }
 
