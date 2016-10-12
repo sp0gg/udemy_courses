@@ -22,6 +22,10 @@ public class App {
         System.out.println(bst.getMin());
         System.out.println("traversing...");
         bst.traverse();
+        System.out.println("searching...");
+        System.out.println(bst.search(25));
+        System.out.println(bst.search(80));
+        System.out.println(bst.search(876876));
     }
 
 

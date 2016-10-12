@@ -7,22 +7,6 @@ class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     private Node<T> root;
 
-    public void traverse() {
-        traverseNode(root);
-    }
-
-    private void traverseNode(Node node){
-        if (node.hasLeftChildNode()) {
-            traverseNode(node.getLeftChild());
-        }
-
-        System.out.println(node.getData());
-
-        if (node.hasRightChildNode()) {
-            traverseNode(node.getRightChild());
-        }
-    }
-
     public void insert(T data) {
         if(root == null){
             root = new Node<>(data);
@@ -33,6 +17,28 @@ class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     public void delete(T data) {
 
+    }
+
+    public Node search(T data) {
+        return searchNode(data, root);
+    }
+
+    private Node searchNode(T data, Node<T> node) {
+        if (node.getData() == data) {
+            return node;
+        }
+
+        if (node.hasLeftChildNode() && node.getData().compareTo(data) > 0) {
+            return searchNode(data, node.getLeftChild());
+        } else if(node.hasRightChildNode() && node.getData().compareTo(data) < 0) {
+            return searchNode(data, node.getRightChild());
+        }
+
+        return null;
+    }
+
+    public void traverse() {
+        traverseNode(root);
     }
 
     public Node<T> getMax() {
@@ -80,6 +86,18 @@ class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
             }else{
                 node.setRightChild(new Node<>(insertionData));
             }
+        }
+    }
+
+    private void traverseNode(Node node){
+        if (node.hasLeftChildNode()) {
+            traverseNode(node.getLeftChild());
+        }
+
+        System.out.println(node.getData());
+
+        if (node.hasRightChildNode()) {
+            traverseNode(node.getRightChild());
         }
     }
 }
