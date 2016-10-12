@@ -8,6 +8,6 @@ public interface Tree<T> {
     public void delete(T data);
     public Node search(T data);
     public void traverse();
-    public Node getMax();
-    public Node getMin();
+    public T getMax();
+    public T getMin();
 }

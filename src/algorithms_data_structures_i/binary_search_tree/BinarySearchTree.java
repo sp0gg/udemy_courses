@@ -41,35 +41,35 @@ class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         traverseNode(root);
     }
 
-    public Node<T> getMax() {
+    public T getMax() {
         if(!root.hasRightChildNode()){
-            return root;
+            return root.getData();
         }else{
             return getRightNode(root.getRightChild());
         }
     }
 
-    public Node<T> getMin() {
+    public T getMin() {
         if(!root.hasLeftChildNode()){
-            return root;
+            return root.getData();
         }else{
             return getLeftNode(root.getLeftChild());
         }
     }
 
-    private Node<T> getRightNode(Node<T> node) {
+    private T getRightNode(Node<T> node) {
         if (node.hasRightChildNode()) {
             return getRightNode(node.getRightChild());
         }else{
-            return node;
+            return node.getData();
         }
     }
 
-    private Node<T> getLeftNode(Node<T> node) {
+    private T getLeftNode(Node<T> node) {
         if (node.hasLeftChildNode()) {
             return getLeftNode(node.getLeftChild());
         }else{
-            return node;
+            return node.getData();
         }
     }
 
